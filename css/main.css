@@ -1,0 +1,109 @@
+.green
+{
+	color: #07d159;
+}
+
+body
+{
+	background-color: #1c1c1f;
+	font-family: "proxima_nova","Helvetica Neue","Helvetica","Arial",sans-serif;
+	color: #a0a0a0;
+}
+
+.error
+{
+	color: #ce1a2b;
+}
+
+.log
+{
+	margin: 5px;
+	font-size: 13px;
+	float: right;
+}
+
+label
+{
+	color: #a0a0a0;
+	font-weight: normal;
+	display: none;
+}
+
+.auth
+{
+	border: none;
+	border-bottom: solid 1px #FFF;
+	border-radius: 0;
+	height: 27px;
+	line-height: 27px;
+	color: white;
+	background-color: transparent;
+	text-decoration: none;
+}
+
+.auth:focus
+{
+	outline: none;
+}
+
+.logbtn
+{
+	background-color: transparent;
+	border: solid 1.5px #fff;
+	border-radius: 256px;
+	color: #fff;
+	line-height: 1.25em;
+	padding: 2px 15px 0;
+	text-align: center;
+	text-transform: uppercase;
+	max-width: 160px;
+	height: 27px;
+	font-size: 12px;
+}
+
+#outbtn
+{
+	display: none;
+}
+
+::-webkit-input-placeholder {
+   color: white;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: white;  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: white;  
+}
+
+:-ms-input-placeholder {  
+   color: white;  
+}
+
+#logo
+{
+	text-align: center;
+}
+
+#logo img
+{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#answer
+{
+	text-align: left;
+	margin-top: 20px;
+	color: #fff;
+}
+
+#prompt
+{
+	text-align: right;
+	margin-top: 20px;
+	color: #fff;
+}
