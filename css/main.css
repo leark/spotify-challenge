@@ -10,6 +10,13 @@ body
 	color: #a0a0a0;
 }
 
+header
+{
+	text-align: right;
+	margin-top: 10px;
+	margin-right: 10px;
+}
+
 .error
 {
 	color: #ce1a2b;
@@ -27,6 +34,11 @@ label
 	color: #a0a0a0;
 	font-weight: normal;
 	display: none;
+}
+
+#main
+{
+
 }
 
 .auth

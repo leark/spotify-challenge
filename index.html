@@ -20,30 +20,21 @@
 </head>
 <body ng-app="spotifyApp" ng-controller="spotifyCtrl">
 	<header>
-		<div class="log">
-			<form class="form-inline" name="loginForm" novalidate>
-
-<!-- incorrect username/password -->
-
-				<div class="form-group">
-					<label>Username</label>
-					<input name="username" class="auth" ng-model="username" placeholder="Spotify username">
-				</div>
-				<div class="form-group">
-					<label>Password</label>
-					<input name="password" type="password" class="auth" ng-model="password" placeholder="Password">
-				</div>
-				<button class="logbtn" id="inbtn">login</button>
+				<button class="logbtn" id="inbtn" ng-click="login()">login</button>
 				<button class="logbtn" id="outbtn" ng-click="logOut()">logout</button>
-		</div>
-			</form>
 	</header>
-	<div class="container">
+	<div class="container" id="main" ng-app="spotifyApp" ng-controller="spotifyCtrl">
 		<div class="row">
 			<div id="logo" class="col-xs-12">
-				<img src="img/spotify_icon.png" ng-click="">
+				<img src="img/spotify_icon.png" ng-click="play(track.preview_url)">
 				<h1>Guess the song!</h1>
-				<p>I want the song from my/random from playlist/library</p>
+				<h2>{{playlistName}}</h2>
+
+				<form class="container" name="songForm">
+					<div class="form-group">
+						<button ng-disabled="songForm.search.$invalid" class="logbtn" ng-click="featuredPlaylist()" type="submit">Start</button>
+					</div>
+				</form>
 			</div>
 		</div>
 		<div class="row">
@@ -82,4 +73,29 @@ random song from
 from your playlist
 from public playlist
 from random playlist
+
+favicon
+
+show album cover
+
 -->
+<!--
+			<form class="form-inline" name="loginForm" novalidate>
+
+				<div class="form-group">
+					<label>Username</label>
+					<input name="username" class="auth" ng-model="username" placeholder="Spotify username" id="username">
+				</div>
+				<div class="form-group">
+					<label>Password</label>
+					<input name="password" type="password" class="auth" ng-model="password" placeholder="Password" id="password">
+				</div>
+			</form>
+								-->
+								<!-- 			<div class="form-group">
+				<label>Spotify search:</label>
+				<input name="search" placeholder="Enter your search.." ng-model="searchTrack" class="auth">
+			</div>
+			<div class="form-group">
+				<button ng-disabled="songForm.search.$invalid" class="logbtn" ng-click="getSongs()" type="submit">Submit</button>
+			</div> -->
