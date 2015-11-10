@@ -11,6 +11,7 @@
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 	
 	<!-- Read scripts -->
 	<script type="text/javascript" src="js/main.js"></script>
@@ -50,18 +51,17 @@
 			</div>
 			<div id="answer" class="col-xs-6">
 				<form class="form">
-					<div class="form-group">
+					<div class="form-group" id="titleAns">
 						<label></label>
-						<input name="title" class="auth" placeholder="title" ng-model="songGuess">
+						<input name="title" class="auth" placeholder="title" ng-model="songGuess" ng-keyup="$event.keyCode == 13 && songCheck()">
 					</div>
-				
-					<div class="form-group">
+					<div class="form-group" id="artistAns">
 						<label></label>
-						<input name="artist" class="auth" placeholder="artist" ng-model="artistGuess">
+						<input name="artist" class="auth" placeholder="artist" ng-model="artistGuess" ng-keyup="$event.keyCode == 13 && artistCheck()">
 					</div>
-					<div class="form-group">
+					<div class="form-group" id="albumAns">
 						<label></label>
-						<input name="album" class="auth" placeholder="album" ng-model="albumGuess">
+						<input name="album" class="auth" placeholder="album" ng-model="albumGuess" ng-keyup="$event.keyCode == 13 && albumCheck()">
 					</div>
 				</form>
 			</div>
@@ -77,28 +77,6 @@ from your playlist
 from public playlist
 from random playlist
 
-favicon
-
 show album cover
 
 -->
-<!--
-			<form class="form-inline" name="loginForm" novalidate>
-
-				<div class="form-group">
-					<label>Username</label>
-					<input name="username" class="auth" ng-model="username" placeholder="Spotify username" id="username">
-				</div>
-				<div class="form-group">
-					<label>Password</label>
-					<input name="password" type="password" class="auth" ng-model="password" placeholder="Password" id="password">
-				</div>
-			</form>
-								-->
-								<!-- 			<div class="form-group">
-				<label>Spotify search:</label>
-				<input name="search" placeholder="Enter your search.." ng-model="searchTrack" class="auth">
-			</div>
-			<div class="form-group">
-				<button ng-disabled="songForm.search.$invalid" class="logbtn" ng-click="getSongs()" type="submit">Submit</button>
-			</div> -->

@@ -7,7 +7,6 @@ spotifyApp.config(function (SpotifyProvider) {
   SpotifyProvider.setClientId('3c3ac8bf947448cda2e3a000f9f756b7');
   SpotifyProvider.setRedirectUri('http://students.washington.edu/shl7/info343/spotify-challenge/callback.html');
   SpotifyProvider.setScope('user-read-private playlist-read-private user-library-read');
-  // If you already have an auth token
   SpotifyProvider.setAuthToken(localStorage.getItem("spotify-token"));
 });
 
@@ -32,6 +31,7 @@ spotifyApp.controller('spotifyCtrl', function (Spotify, $scope, $http) {
     var artist = "";
     var album = "";
 
+    // grab featured playlist
     $scope.featuredPlaylist = function() {
 		$http({
 			method: 'GET',
@@ -47,6 +47,7 @@ spotifyApp.controller('spotifyCtrl', function (Spotify, $scope, $http) {
 		});
    	}
 
+   	// get track info from playlistID and ownerID and put them in the page
    	var getTracks = function(playlistID, ownerID) {
 		var trackURL = "https://api.spotify.com/v1/users/" + ownerID + "/playlists/" + playlistID + "/tracks";
 		$http({
@@ -65,7 +66,7 @@ spotifyApp.controller('spotifyCtrl', function (Spotify, $scope, $http) {
 		});
    	}
 	
-	// if logged in
+	// if logged in, can access user's playlist
    	$scope.userPlaylist = function() {
 	
 		Spotify.getUserPlaylists(user.id).then(function (data) {
@@ -76,7 +77,34 @@ spotifyApp.controller('spotifyCtrl', function (Spotify, $scope, $http) {
 		});
    	}
 
+   	// checks if user got name of the song correct
+   	$scope.songCheck = function() {
+   		if (songName.toLowerCase() == $scope.songGuess.toLowerCase()) {
+   			$("#titleAns").append($("<i class='fa fa-check correct'>"));
+   		} else {
+   			$("#titleAns").append($("<i class='fa fa-times error'>"));
+   		}
+   	}
 
+   	// checks if user got name of the artist correct
+   	$scope.artistCheck = function() {
+   		if (artist.toLowerCase() == $scope.artistGuess.toLowerCase()) {
+   			$("#artistAns").append($("<i class='fa fa-check correct'>"));
+   		} else {
+   			$("#artistAns").append($("<i class='fa fa-times error'>"));
+   		}
+   	}
+
+   	// checks if user got name of the album correct
+   	$scope.albumCheck = function() {
+   		if (album.toLowerCase() == $scope.albumGuess.toLowerCase()) {
+   			$("#albumAns").append($("<i class='fa fa-check correct'>"));
+   		} else {
+   			$("#albumAns").append($("<i class='fa fa-times error'>"));
+   		}
+   	}
+
+   	// manages playing the song
     $scope.play = function(song) {
       if($scope.currentSong == song) {
         $scope.audioObject.pause()
@@ -91,29 +119,22 @@ spotifyApp.controller('spotifyCtrl', function (Spotify, $scope, $http) {
       }
     }
 
+    // logs user in
 	$scope.login = function() {
 		Spotify.login().then(function(data){
 			console.log(data);
 			console.log("you are now logged in");
+			location.reload();
 		}, function() {
 			console.log(data);
 			console.log("didn\'t log in");
+			location.reload();
 		});
-		$("#inbtn").css("display", "none");
+		// $("#inbtn").css("display", "none");
 	};
-
-	// Spotify.getNewReleases().then(function (data) {
-	// 	console.log(data);
-	// })
-
-
-
-	// Spotify.getPlaylistTracks('user_id', 'playlist_id').then(function (data) {
-	// 	console.log(data);
-	// })
-
 });
 
+// generates random number between 0 and max - 1
 var randomNumber = function(max) {
 	return Math.floor((Math.random() * parseInt(max)));
 }

@@ -22,6 +22,11 @@ header
 	color: #ce1a2b;
 }
 
+.correct
+{
+	color: #84bd00;
+}
+
 .log
 {
 	margin: 5px;
@@ -34,11 +39,6 @@ label
 	color: #a0a0a0;
 	font-weight: normal;
 	display: none;
-}
-
-#main
-{
-
 }
 
 .auth
@@ -119,3 +119,5 @@ label
 	margin-top: 20px;
 	color: #fff;
 }
+
+/*http://designpieces.com/palette/spotify-color-palette-hex-and-rgb/*/
