@@ -5,7 +5,7 @@ var spotifyApp = angular.module("spotifyApp", ['spotify']);
 
 spotifyApp.config(function (SpotifyProvider) {
   SpotifyProvider.setClientId('3c3ac8bf947448cda2e3a000f9f756b7');
-  SpotifyProvider.setRedirectUri('http://students.washington.edu/shl7/info343/spotify-challenge/callback.html');
+  SpotifyProvider.setRedirectUri('http://localhost:8080/callback.html');
   SpotifyProvider.setScope('user-read-private playlist-read-private user-library-read');
   SpotifyProvider.setAuthToken(localStorage.getItem("spotify-token"));
 });
