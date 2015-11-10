@@ -16,49 +16,52 @@
 	<script type="text/javascript" src="js/main.js"></script>
 	<script type="text/javascript" src="js/angular-spotify.js"></script>
 	<link href="css/main.css" type="text/css" rel="stylesheet"/>	
+	<link rel="icon" type="image/png" href="img/favicon.png">
 	
 </head>
 <body ng-app="spotifyApp" ng-controller="spotifyCtrl">
 	<header>
-				<button class="logbtn" id="inbtn" ng-click="login()">login</button>
-				<button class="logbtn" id="outbtn" ng-click="logOut()">logout</button>
+		<button class="logbtn" id="inbtn" ng-click="login()">login</button>
 	</header>
-	<div class="container" id="main" ng-app="spotifyApp" ng-controller="spotifyCtrl">
+	<div class="container" id="main">
 		<div class="row">
 			<div id="logo" class="col-xs-12">
 				<img src="img/spotify_icon.png" ng-click="play(track.preview_url)">
 				<h1>Guess the song!</h1>
 				<h2>{{playlistName}}</h2>
 
-				<form class="container" name="songForm">
+				<form class="container form-inline" name="songForm">
 					<div class="form-group">
-						<button ng-disabled="songForm.search.$invalid" class="logbtn" ng-click="featuredPlaylist()" type="submit">Start</button>
+						<button ng-disabled="songForm.search.$invalid" class="logbtn" ng-click="featuredPlaylist()" type="submit">Featured Playlists</button>
+					</div>
+					<div class="form-group">
+						<button ng-disabled="songForm.search.$invalid" class="logbtn" ng-click="userPlaylist()" type="submit">Your Playlists</button>
 					</div>
 				</form>
 			</div>
 		</div>
 		<div class="row">
 			<div id="prompt" class="col-xs-6">
-				<p>I think the name of the song is, 
+				<p>Name of song: {{song}} 
 				<br />
-				which is played by, 
+				Artist: {{artist}} 
 				<br />
-				in the year</p>
+				Album: {{album}}</p>
 			</div>
 			<div id="answer" class="col-xs-6">
 				<form class="form">
 					<div class="form-group">
 						<label></label>
-						<input name="title" class="auth" placeholder="title" ng-model="title">
+						<input name="title" class="auth" placeholder="title" ng-model="songGuess">
 					</div>
 				
 					<div class="form-group">
 						<label></label>
-						<input name="artist" class="auth" placeholder="artist" ng-model="artist">
+						<input name="artist" class="auth" placeholder="artist" ng-model="artistGuess">
 					</div>
 					<div class="form-group">
 						<label></label>
-						<input name="year" class="auth" placeholder="year" ng-model="year">
+						<input name="album" class="auth" placeholder="album" ng-model="albumGuess">
 					</div>
 				</form>
 			</div>

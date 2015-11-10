@@ -68,12 +68,12 @@ label
 	padding: 2px 15px 0;
 	text-align: center;
 	text-transform: uppercase;
-	max-width: 160px;
+	max-width: 200px;
 	height: 27px;
 	font-size: 12px;
 }
 
-#outbtn
+#inbtn
 {
 	display: none;
 }
