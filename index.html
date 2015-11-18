@@ -42,28 +42,23 @@
 			</div>
 		</div>
 		<div class="row">
-			<div id="prompt" class="col-xs-6">
-				<p>Name of song: {{song}} 
-				<br />
-				Artist: {{artist}} 
-				<br />
-				Album: {{album}}</p>
-			</div>
-			<div id="answer" class="col-xs-6">
-				<form class="form">
-					<div class="form-group" id="titleAns">
-						<label></label>
-						<input name="title" class="auth" placeholder="title" ng-model="songGuess" ng-keyup="$event.keyCode == 13 && songCheck()">
-					</div>
-					<div class="form-group" id="artistAns">
-						<label></label>
-						<input name="artist" class="auth" placeholder="artist" ng-model="artistGuess" ng-keyup="$event.keyCode == 13 && artistCheck()">
-					</div>
-					<div class="form-group" id="albumAns">
-						<label></label>
-						<input name="album" class="auth" placeholder="album" ng-model="albumGuess" ng-keyup="$event.keyCode == 13 && albumCheck()">
-					</div>
-				</form>
+			<div class="col-xs-12">
+				<table>
+					<thead class="t1-header">
+						<tr>
+							<th class="t1-song">Song</th>
+							<th>Artist</th>
+							<th>Album</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="t1-row" ng-repeat="option in options">
+							<td class="t1-cell title" ng-class="{active: clickedT == option.title}" ng-click="chckAns(option.titleTrue, option.title, 'title')">{{ option.title }}</td>
+							<td class="t1-cell artist" ng-class="{active: clickedA == option.artist}" ng-click="chckAns(option.artistTrue, option.artist, 'artist')">{{ option.artist }}</td>
+							<td class="t1-cell album" ng-class="{active: clickedAl == option.album}" ng-click="chckAns(option.albumTrue, option.album, 'album')">{{ option.album }}</td>
+						</tr>
+					</tbody>
+				</table>
 			</div>
 		</div>
 	</div>
@@ -71,12 +66,8 @@
 </html>
 
 <!-- 
-random song
-random song from
-from your playlist
-from public playlist
-from random playlist
 
 show album cover
 
 -->
+

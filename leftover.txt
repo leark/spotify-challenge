@@ -1,0 +1,75 @@
+    // var createOptions = function(artistID, albumID, answers) {
+    //   Spotify.getAlbumTracks(albumID).then(function (data) {
+    //     console.log("Album tracks")
+    //     console.log(data);
+    //     $scope.titles = "";
+    //     $scope.titles = createQuestions(3, data.items, answers[0]);;
+    //     console.log($scope.titles);
+    //   });
+    //   Spotify.getRelatedArtists(artistID).then(function (data) {
+    //     console.log("Related Artists")
+    //     console.log(data);
+    //     $scope.artists = "";
+    //     $scope.artists = createQuestions(3, data.artists, answers[1]);;
+    //     console.log($scope.titles);
+    //   });
+    //   Spotify.getArtistAlbums(artistID).then(function (data) {
+    //     console.log("Albums from Artist");
+    //     console.log(data);
+    //     $scope.albums = ""; 
+    //     $scope.albums = createQuestions(3, data.items, answers[2]);
+    //     console.log($scope.titles);
+    //   });
+    // }
+
+    var getTracks = function(playlistID, ownerID) {
+        var trackURL = "https://api.spotify.com/v1/users/" + ownerID + "/playlists/" + playlistID + "/tracks";
+        $http({
+            method: 'GET',
+            url: trackURL,
+            headers: {
+                'Authorization': 'Bearer '+ accessToken
+        }}).success(function (response) {
+            var random = randomNumber(response.items.length);
+            console.log("second random: " + random);
+            console.log(response.items[random]);
+
+            var datum = $scope.track = response.items[random].track;
+        songName = $scope.song = datum.name;
+        artist = $scope.artist = datum.artists[0].name;
+        album = $scope.album = datum.album.name;
+
+        var answers = [songName, artist, album];
+
+        createOptions(datum.artists[0].id, datum.album.id, answers);
+        
+        });
+    }
+
+        <div class="row">
+<!--            
+            shows answers
+
+            <div id="prompt" class="col-xs-6">
+                <p>Name of song:  
+                <br />
+                Artist: 
+                <br />
+                Album: </p>
+            </div> -->
+            <div id="answer" class="col-xs-12">
+                <!-- 
+                button type options
+
+                <form class="form" id="choices">
+                    <div class="form-group" id="titleAns">
+                        <button class='logbtn choice'  ng-repeat='title in titles' ng-click='chckAns(title.true)'>{{title.name}}</button>
+                    </div>
+                    <div class="form-group" id="artistAns">
+                        <button class='logbtn choice'  ng-repeat='artistC in artists' ng-click='chckAns(artistC.true)'>{{artistC.name}}</button>
+                    </div>
+                    <div class="form-group" id="albumAns">
+                        <button class='logbtn choice'  ng-repeat='albumG in albums' ng-click='chckAns(albumG.true)'>{{albumG.name}}</button>
+                    </div>
+                </form> -->
+            </div>
