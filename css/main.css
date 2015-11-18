@@ -5,8 +5,8 @@
 
 body
 {
-	background-color: #121314;
-	font-family: proxima_nova,"Helvetica Neue",Helvetica,Arial,sans-serif;
+	background-color: #1c1c1f;
+	font-family: "proxima_nova","Helvetica Neue","Helvetica","Arial",sans-serif;
 	color: #a0a0a0;
 }
 
@@ -25,6 +25,13 @@ header
 .correct
 {
 	color: #84bd00;
+}
+
+.log
+{
+	margin: 5px;
+	font-size: 13px;
+	float: right;
 }
 
 label
@@ -71,11 +78,6 @@ label
 	display: none;
 }
 
-#clickedbtn
-{
-	border-color: #648f00;
-}
-
 ::-webkit-input-placeholder {
    color: white;
 }
@@ -102,7 +104,6 @@ label
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
-	height: 256px;
 }
 
 #answer
@@ -119,86 +120,4 @@ label
 	color: #fff;
 }
 
-.choice
-{
-	height: 50px;
-	max-width: 400px;
-}
 /*http://designpieces.com/palette/spotify-color-palette-hex-and-rgb/*/
-
-table
-{
-	color: #88898c;
-	table-layout: fixed;
-	width: 100%;
-	background-color: transparent;
-	border-spacing: 0;
-	border-collapse: separate;
-	border-spacing: 2px;
-	border-color: grey;
-	padding-top: 20px;
-}
-
-tr
-{
-
-}
-
-.t1-cell, .t1-header th
-{
-	padding: 0 0 0 12px;
-	border-top: 1px solid #222326;
-	position: relative;
-}
-
-.t1-header th 
-{
-	border-top: 0;
-	letter-spacing: 1px;
-	line-height: 28px;
-	text-transform: uppercase;
-	vertical-align: bottom;
-}
-
-.t1-song
-{
-	width: 50%;
-}
-
-.t1-play
-{
-	width: 40px;
-}
-
-th
-{
-	font-weight: 400;
-	text-align: left;
-}
-
-.t1-cell
-{
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
-	height: 40px;
-	background: #121314;
-}
-
-td:hover
-{
-	background: #1c1c1f;
-	color: #fbfbfc;
-}
-
-.active
-{
-	border-color: #121314;
-	background-color: #222326;
-}
-
-td
-{
-	color: #dfe0e6;
-	font-size: 14px;
-}
