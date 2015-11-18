@@ -24,6 +24,9 @@ spotifyApp.controller('spotifyCtrl', function (Spotify, $scope, $http, $firebase
 
   var ref = new Firebase("https://twitter-demo-youta.firebaseio.com/");
 
+  $scope.users = $firebaseObject(users);
+  $scope.authObj = $firebaseAuth(ref);
+
   $scope.audioObject = {}
 
   var accessToken = localStorage.getItem("spotify-token");
