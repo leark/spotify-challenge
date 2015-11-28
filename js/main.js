@@ -1,7 +1,7 @@
 var data;
 var user;
 
-var spotifyApp = angular.module("spotifyApp", ['spotify', 'firebase']);
+var spotifyApp = angular.module("spotifyApp", ['spotify']);
 
 spotifyApp.config(function (SpotifyProvider) {
   SpotifyProvider.setClientId('3c3ac8bf947448cda2e3a000f9f756b7');
@@ -10,7 +10,7 @@ spotifyApp.config(function (SpotifyProvider) {
   SpotifyProvider.setAuthToken(localStorage.getItem("spotify-token"));
 });
 
-spotifyApp.controller('spotifyCtrl', function (Spotify, $scope, $http, $firebaseAuth, $firebaseArray, $firebaseObject) {
+spotifyApp.controller('spotifyCtrl', function (Spotify, $scope, $http) {
 
 	// check if someone is logged in
 	Spotify.getCurrentUser().then(function (data) {
@@ -22,10 +22,10 @@ spotifyApp.controller('spotifyCtrl', function (Spotify, $scope, $http, $firebase
 		$("#inbtn").css("display", "inline");
 	});
 
-  var ref = new Firebase("https://twitter-demo-youta.firebaseio.com/");
+  // var ref = new Firebase("https://twitter-demo-youta.firebaseio.com/");
 
-  $scope.users = $firebaseObject(users);
-  $scope.authObj = $firebaseAuth(ref);
+  // $scope.users = $firebaseObject(users);
+  // $scope.authObj = $firebaseAuth(ref);
 
   $scope.audioObject = {}
 
@@ -149,6 +149,18 @@ spotifyApp.controller('spotifyCtrl', function (Spotify, $scope, $http, $firebase
       } else {
         gotAlbum = true;
       }
+
+      // switch (type) {
+      //   case "title":
+      //     gotTitle = true;
+      //     break;
+      //   case "artist":
+      //     gotArtist = true;
+      //     break;
+      //   case "album":
+      //     gotAlbum = true;
+      //     break;
+      // }
     } else {
       if (type === "title") {
         numWrong[0]++;
